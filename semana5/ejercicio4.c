@@ -1,31 +1,32 @@
-#include<stdio.h>	
-	int main()
+#include <stdio.h>
+int main()
 {
+    int low, high, i, flag;
+    printf("Ingrese 2 numero para el Intervalo: ");
+    scanf("%d %d", &low, &high);
 
-    int  num, decimal = 0, base = 1, rem;
+    printf("Los numero primos entre %d y %d son= ", low, high);
 
- 
-
-    printf("Ingrese un numero binario \n");
-
-    scanf("%d", &num); 
-
-
-    while (num > 0)
-
+    while (low < high)
     {
+        flag = 0;
 
-        rem = num % 10;
+        for(i = 2; i <= low/2; ++i)
+        {
+            if(low % i == 0)
+            {
+                flag = 1;
+                break;
+            }
+        }
 
-        decimal = decimal + rem * base;
+        if (flag == 0)
+            printf("%d ", low);
 
-        num = num / 10 ;
-
-        base = base * 2;
-
+        ++low;
     }
 
-    printf("El numero decimal es = %d \n", decimal);
-
-return 0;
+    return 0;
 }
+
+
