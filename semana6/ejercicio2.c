@@ -10,11 +10,11 @@ int main()
 	int YA, XA;
 	int alumnos[4][10];
 	for (YA=0; YA<10; YA++){
-		for (XA=0; XA<4; YA++){
+		for (XA=0; XA<4; XA++){
 			alumnos[XA][YA];
 		}
 	}
-	foopen("dalumnos");
+	dalumnos = fopen("dalumnos","r");
 	for (YA = 0; YA < 10; YA++){
         fscanf(dalumnos, "%d", &alumnos[0][YA]);
         }
@@ -69,7 +69,7 @@ int main()
 		promedio+=alumnos[3][YA];
 	}
 	promedio=promedio/10;
-	foopen("resumen");
+	resumen = fopen("resumen","w");
 
 	fprintf(resumen, " numero de mujeres = %i, numero de hombres = %i\n", mujer, hombre);
 	fprintf(resumen, "alumnos por semestre 1=%i,2=%i,3=%i,4=%i,5=%i,6=%i,7=%i,8=%i,9=%i\n", uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve);
