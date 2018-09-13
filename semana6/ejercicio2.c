@@ -14,22 +14,19 @@ int main()
 		}
 	}
 	archivo=foopen("dalumnos")
-	printf("Ingrese la edad de 10 alumnos\n");
-	for (YA=0; YA<10;YA++){
-		scanf("%i", &alumnos[0][YA]);
-	}
-	printf("Ingrese el sexo de 10 alumnos 0 para hombre, 1 para mujer\n");
-        for (YA=0; YA<10;YA++){
-                scanf("%i", &alumnos[1][YA]);
+	for (YA = 0; YA < 10; YA++){
+        fscanf(dalumnos, "%d", &alumnos[0][YA]);
         }
-	printf("Ingrese el semestre de 10 alumnos de 1 a 9\n");
-        for (YA=0; YA<10;YA++){
-                scanf("%i", &alumnos[2][YA]);
+	for (YA = 0; YA < 10; YA++){
+        fscanf(dalumnos, "%d", &alumnos[1][YA]);
         }
-	printf("Ingrese la calificacion de 10 alumnos\n");
-        for (YA=0; YA<10;YA++){
-                scanf("%i", &alumnos[3][YA]);
+	for (YA = 0; YA < 10; YA++){
+        fscanf(dalumnos, "%d", &alumnos[2][YA]);
         }
+	for (YA = 0; YA < 10; YA++){
+        fscanf(dalumnos, "%d", &alumnos[3][YA]);
+        }
+	fclose(dalumnos);
 	for (YA=0; YA<10;YA++){
 		if(alumnos[1][YA]==1){
 			mujer+=1;
@@ -71,10 +68,12 @@ int main()
 		promedio+=alumnos[3][YA];
 	}
 	promedio=promedio/10;
+	archivo=foopen("resumen")
 
-	printf(" numero de mujeres = %i, numero de hombres = %i\n", mujer, hombre);
-	printf("alumnos por semestre 1=%i,2=%i,3=%i,4=%i,5=%i,6=%i,7=%i,8=%i,9=%i\n", uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve);
-	printf("promedio alumnos = %i\n", promedio);
+	fprintf(resumen, " numero de mujeres = %i, numero de hombres = %i\n", mujer, hombre);
+	fprintf(resumen, "alumnos por semestre 1=%i,2=%i,3=%i,4=%i,5=%i,6=%i,7=%i,8=%i,9=%i\n", uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve);
+	fprintf(resumen, "promedio alumnos = %i\n", promedio);
+	fclose(resumen);
 	return 0;
 }
 
