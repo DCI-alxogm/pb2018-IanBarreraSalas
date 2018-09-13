@@ -2,7 +2,8 @@
 #include <math.h>
 int main()
 {
-	FILE*archivo;
+	FILE*dalumnos;
+	FILE*resumen;
 	int mujer=0, hombre=0;
 	int uno=0, dos=0, tres=0, cuatro=0, cinco=0, seis=0, siete=0, ocho=0, nueve=0;
 	int promedio=0;
@@ -13,7 +14,7 @@ int main()
 			alumnos[XA][YA];
 		}
 	}
-	archivo=foopen("dalumnos")
+	foopen("dalumnos");
 	for (YA = 0; YA < 10; YA++){
         fscanf(dalumnos, "%d", &alumnos[0][YA]);
         }
@@ -68,7 +69,7 @@ int main()
 		promedio+=alumnos[3][YA];
 	}
 	promedio=promedio/10;
-	archivo=foopen("resumen")
+	foopen("resumen");
 
 	fprintf(resumen, " numero de mujeres = %i, numero de hombres = %i\n", mujer, hombre);
 	fprintf(resumen, "alumnos por semestre 1=%i,2=%i,3=%i,4=%i,5=%i,6=%i,7=%i,8=%i,9=%i\n", uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve);
@@ -76,4 +77,3 @@ int main()
 	fclose(resumen);
 	return 0;
 }
-
