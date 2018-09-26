@@ -28,16 +28,9 @@ int main()
 		printf("error, potencia invalida");
 		return 1;
 	}
-h=(b-a)/k;
-ab=a;
-for(i=0;i<n;i++){
-	sum[i]=0;
-}
-for(i=0;i<n;i++){
-	for(io=1;io<k;io++){
-		sum[i]=sum[i-1]+ab+(a+b/2)/n;}
-sum[i]= h*((sum[i]+sum[0])/2+sum[1]);
-}
+	h=a-a/n
+	for (){
+		h+=a+ter-a
 resultados = fopen("resultados","w");
 for(i=0;i<n;i++){
 	ab=a+i;
