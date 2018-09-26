@@ -22,7 +22,7 @@ int main()
     deltaf=tevo/deltaT;
     float x[deltaf], y[deltaf], z[deltaf], vx[deltaf], vy[deltaf], vz[deltaf];
     float xo=xi, vxo=vxi, yo=yi, vyo=vyi, zo=zi, vzo=vzi, r;
-    for(i=0;i<deltaf;i+=deltaT){
+    for(i=0;i<deltaf;i++){
         r=sqrt(xo*xo+yo*yo*+zo*zo);
         x[i]= xo+(vxo*deltaT);
         y[i]= yo+(vyo*deltaT);
@@ -39,12 +39,7 @@ int main()
     }
     resultados=fopen("resultados","w");
     for(i=0;i<deltaf;i++){
-    fprintf(resultados,"%f", x[i]);
-    fprintf(resultados,"%f", y[i]);
-    fprintf(resultados,"%f", z[i]);
-    fprintf(resultados,"%f", vx[i]);
-    fprintf(resultados,"%f", vy[i]);
-    fprintf(resultados,"%f \n", vz[i]);
+    fprintf(resultados,"%f %f %f %f %f %f \n", x[i], y[i], z[i], vx[i], vy[i], vz[i]);
     }
     fclose(resultados);
     return 0;
