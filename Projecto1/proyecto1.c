@@ -13,19 +13,19 @@ int main()
     fscanf(datos, "%f", &tevo);
     fscanf(datos, "%f", &deltaT);
     fscanf(datos, "%f", &xi);
-    fscanf(datos, "%f", &vxi);
+    fscanf(datos, "%f", &vxi); //lectura de datos desde archivo
     fscanf(datos, "%f", &yi);
     fscanf(datos, "%f", &vyi);
     fscanf(datos, "%f", &zi);
     fscanf(datos, "%f", &vzi);
     fclose(datos);
     deltaf=tevo/deltaT;
-    float x[deltaf], y[deltaf], z[deltaf], vx[deltaf], vy[deltaf], vz[deltaf];
+    float x[deltaf], y[deltaf], z[deltaf], vx[deltaf], vy[deltaf], vz[deltaf]; //asignacion de varialbes
     float xo=xi, vxo=vxi, yo=yi, vyo=vyi, zo=zi, vzo=vzi, r;
-    for(i=0;i<deltaf;i++){
+    for(i=0;i<deltaf;i++){   //calculos de la orbita
         r=sqrt(xo*xo+yo*yo*+zo*zo);
         x[i]= xo+(vxo*deltaT);
-        y[i]= yo+(vyo*deltaT);
+        y[i]= yo+(vyo*deltaT);// se guardan dentro de arreglos
         z[i]= zo+(vzo*deltaT);
         vx[i]= vxo-(deltaT*4*3.14*3.14*masae*xo)/(r*r*r);
         vy[i]= vyo-(deltaT*4*3.14*3.14*masae*yo)/(r*r*r);
@@ -39,7 +39,7 @@ int main()
     }
     resultados=fopen("resultados","w");
     for(i=0;i<deltaf;i++){
-    fprintf(resultados,"%f %f %f %f %f %f \n", x[i], y[i], z[i], vx[i], vy[i], vz[i]);
+    fprintf(resultados,"%f %f %f %f %f %f \n", x[i], y[i], z[i], vx[i], vy[i], vz[i]); //se imprimen los resultados a un documento
     }
     fclose(resultados);
     return 0;
