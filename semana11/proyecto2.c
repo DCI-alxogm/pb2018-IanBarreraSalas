@@ -27,17 +27,18 @@ int main()
 	}
 	while(i<10){
 	while(placa[5][5]<izq-1){
+		     char buffer[32];
+        while(c<21) {
+
 	for(YA=1; YA<N-1; YA++){
 		for(XA=1; XA<N-1; XA++){
 			placa[XA][YA]=(placa[XA+1][YA]+placa[XA-1][YA]+placa[XA][YA+1]+placa[XA][YA-1])/4;
 		}
 	}
-        while(c<31) {
-		char buffer[32];
 
                 snprintf(buffer, sizeof(char)*32, "resultados%i", c);
                 c++;
-
+	
 	resultados=fopen(buffer,"w");
 	for(YA=0; YA<N; YA++){
                 for(XA=0; XA<N; XA++){
